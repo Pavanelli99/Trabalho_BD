@@ -1,0 +1,58 @@
+DROP TABLE IF EXISTS fakenames;
+
+DROP SEQUENCE IF EXISTS fakenames_seq;
+CREATE SEQUENCE fakenames_seq INCREMENT 1 START 1;
+
+  
+CREATE TABLE fakenames (
+  number int NOT NULL PRIMARY KEY DEFAULT nextval('fakenames_seq'),
+  gender varchar(6) NOT NULL,
+  nameset varchar(25) NOT NULL,
+  title varchar(6) NOT NULL,
+  givenname varchar(20) NOT NULL,
+  middleinitial varchar(1) NOT NULL,
+  surname varchar(23) NOT NULL,
+  streetaddress varchar(100) NOT NULL,
+  city varchar(100) NOT NULL,
+  state varchar(22) NOT NULL,
+  statefull varchar(100) NOT NULL,
+  zipcode varchar(15) NOT NULL,
+  country varchar(2) NOT NULL,
+  countryfull varchar(100) NOT NULL,
+  emailaddress varchar(100) NOT NULL,
+  username varchar(25) NOT NULL,
+  password varchar(25) NOT NULL,
+  browseruseragent varchar(255) NOT NULL,
+  telephonenumber varchar(25) NOT NULL,
+  telephonecountrycode int NOT NULL,
+  maidenname varchar(20) NOT NULL,
+  birthday varchar(10) NOT NULL,
+  age int NOT NULL,
+  tropicalzodiac varchar(11) NOT NULL,
+  cctype varchar(10) NOT NULL,
+  ccnumber varchar(16) NOT NULL,
+  CVV2 varchar(3) NOT NULL,
+  ccexpires varchar(10) NOT NULL,
+  nationalid varchar(20) NOT NULL,
+  upstracking varchar(24) NOT NULL,
+  westernunionmtcn char(10) NOT NULL,
+  moneygrammtcn char(8) NOT NULL,
+  color varchar(6) NOT NULL,
+  occupation varchar(70) NOT NULL,
+  company varchar(70) NOT NULL,
+  vehicle varchar(255) NOT NULL,
+  domain varchar(70) NOT NULL,
+  bloodtype varchar(3) NOT NULL,
+  pounds varchar(5) NOT NULL,
+  kilograms varchar(5) NOT NULL,
+  feetinches varchar(6) NOT NULL,
+  centimeters varchar(3) NOT NULL,
+  guid varchar(36) NOT NULL,
+  latitude numeric(10,6) NOT NULL,
+  longitude numeric(10,6) NOT NULL
+);
+
+
+COPY fakenames FROM
+  '/tmp/CSVs/fakenames.csv' csv header delimiter ';' quote '"';
+
